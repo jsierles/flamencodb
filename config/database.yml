@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: letras_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  database: letras_test
+  pool: 5

@@ -1,0 +1,7 @@
+<ul>
+<% @lyrics.each do |l| %>
+  <li style="margin-bottom: 20px"><%= link_to highlight(l.body.gsub("\n", " / "), params[:q]), lyric_path(l) %>
+    <p>Interpretado por: <%=raw l.lyric_occurences.collect {|lo| link_to(lo.track.singer.name, artist_path(lo.track.singer)) }.join(", ")%></p>
+      </li>
+<% end %>
+</ul>

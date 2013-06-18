@@ -1,0 +1,19 @@
+<div style="float: left; width: 49%">
+<h1><%= @track.title %></h1>
+<h2><%= @track.style %> del álbum <%= link_to @track.album.title, album_path(@track.album) %></h2>
+<h3>Cante: <%= link_to @track.singer.name, artist_path(@track.singer) %></h3>
+<% if @track.guitarist %>
+<h4>Guitarra: <%= link_to @track.guitarist.name, artist_path(@track.guitarist) %></h4>
+<% end %>
+<% if @track.has_audio? %>
+<audio style="margin-top: 5px" controls>
+  <source src="<%= @track.audio_url %>" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<% end %>
+<div>
+  <% @track.lyrics.each do |l| %>
+  <p><%=raw l.body.gsub("\n", "<br />") %></p>
+  <% end %>
+</div>
+</div>

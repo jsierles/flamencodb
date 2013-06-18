@@ -1,0 +1,9 @@
+<div style="float: left; width: 49%">
+<h1><%= @album.title %></h1>
+<ul>
+  <% @album.tracks.each do |t| %>
+  <li><%= link_to t.title, track_path(t) %></li>
+  <% end %>
+</ul>
+</div>
+

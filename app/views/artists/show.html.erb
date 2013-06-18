@@ -1,0 +1,9 @@
+<div style="float: left; width: 49%">
+<h1><%= @artist.name %></h1>
+<ul>
+  <% @artist.tracks.each do |t| %>
+  <li><%= link_to t.derived_title, track_path(t) %></li>
+  <% end %>
+</ul>
+</div>
+

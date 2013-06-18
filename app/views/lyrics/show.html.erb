@@ -1,0 +1,28 @@
+<div style="float: left; width: 49%">
+<p class="lyric"><%=raw @lyric.body.gsub("\n", "<br />")  %></p>
+</div>
+<div style="float: right; width: 49%; margin-top: 25px">
+  <ul class="appearances">
+  <% @lyric.tracks.each do |track| %>
+  <li style="margin-bottom: 10px">
+    <div class="track_title">
+  <%= link_to track.title, track_path(track) %>
+    </div>
+    <div style="font-size: 80%" class="artist_name">
+      <%= link_to track.singer.name, artist_path(track.album.artist) %>
+    </div>
+    <div  style="font-size: 80%" class="album_title">
+      <%= link_to track.album.title, album_path(track.album) %>
+    </div>
+    <p>verso #<%= track.position + 1 %></p>
+  <% if track.has_audio?  %>
+  <audio style="margin-top: 5px" controls>
+    <source src="<%= track.audio_url %>" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <%= link_to('bajar', track.audio_url) %> 
+  <% end %>
+  </li>
+  <% end %>
+  </ul>
+</div>
