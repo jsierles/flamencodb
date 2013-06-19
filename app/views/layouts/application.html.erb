@@ -10,6 +10,10 @@
 </head>
 <body>
 <div id="wrapper">
+<header>
+  <div style="margin: 0 auto; width: 60%; float: right">
+  <input style="padding: 5px; width: 300px" type="text" name="q" value="<%= params[:q] %>"> <input type="submit" />
+</header>
 <%= yield %>
 </div>
 </body>
