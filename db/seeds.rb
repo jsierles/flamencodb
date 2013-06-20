@@ -25,6 +25,7 @@ TRACK_LEGENDS = {
   'Letra' => :lyric
 }
 
+puts "Importing #{tracks.size} tracks..."
 tracks.each do |t|
     track_values = {}
     lyrics = nil
@@ -77,12 +78,10 @@ tracks.each do |t|
                          audio_url: track_values['audio_url'],
                          album: album)
     
-    #puts "Created track #{track.title}"
         
     main_artist = Artist.where(name: track_values['artist_name']).first_or_create
 
     p = TrackParticipation.create(artist: main_artist, track: track, role: 'cante')
-    #puts "Added artist #{p.artist.name} to track #{track.title}"
         
     if track_values['Guitarra']  
       guitarist = Artist.where(name: track_values['Guitarra'].split.map(&:capitalize).join(' ')).first_or_create
@@ -92,13 +91,13 @@ tracks.each do |t|
     if lyrics
       lyrics.each_with_index do |l, i|
         body = l.children.collect do |el|
-          el.text.strip.chomp(",").chomp(".") if el.text.length > 2 && el.is_a?(Nokogiri::XML::Text)
+          el.text.strip.chomp(",").chomp(".").chomp(";") if el.text.length > 2 && el.is_a?(Nokogiri::XML::Text)
         end.compact.join("\n")
   
         lyric = Lyric.where(body: body).first_or_create
-        #puts "Added lyric #{lyric}"
       
         LyricOccurence.create(lyric: lyric, track: track, position: i)
       end
     end
 end
+puts "Done!"
