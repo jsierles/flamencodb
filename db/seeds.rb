@@ -25,6 +25,7 @@ TRACK_LEGENDS = {
   'Letra' => :lyric
 }
 
+
 puts "Importing #{tracks.size} tracks..."
 tracks.each do |t|
     track_values = {}
@@ -43,7 +44,6 @@ tracks.each do |t|
         if label == "Letra"
             
           if link = row_cells[1].at("a")
-            puts link['href'].inspect
             track_values['audio_url'] = link['href'].gsub("../", "http://flun.cica.es/")
           end
           
@@ -57,7 +57,7 @@ tracks.each do |t|
     
     album = Album.where(title: track_values["Nombre del Disco"]).first_or_create do |al|
       al.label = track_values['Casa Discográfica']
-      al.release_year = track_values['Año de Edición']
+      al.release_year = "1-1-#{track_values['Año de Edición']}"
       al.format = track_values['Formato']
       al.matrix = track_values['Número / Matriz']
       al.catalog_number = track_values['Número de Catálogo']
