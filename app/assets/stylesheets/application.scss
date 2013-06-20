@@ -40,6 +40,7 @@ body {
 
 #header {
   margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 #search-results li {
@@ -73,7 +74,6 @@ body {
 }
 
 @media only screen and (max-device-width: 480px) {
-  #header { margin-top: 10px;}
   #content {padding-left: 14px; }
   .lyric_result {border-bottom: 1px solid #ccc; }
 }
