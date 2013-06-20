@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130618145543) do
+ActiveRecord::Schema.define(version: 20130620160118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -35,35 +36,42 @@ ActiveRecord::Schema.define(version: 20130618145543) do
     t.datetime "updated_at"
   end
 
-  create_table "track_participations", force: true do |t|
-    t.integer "artist_id"
-    t.integer "track_id"
-    t.string  "role"
+  create_table "favorites", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
-  create_table "tracks", force: true do |t|
-    t.string "title"
-    t.integer "album_id"
-    t.string  "palo"
-    t.string  "style"
-    t.integer "duration"
-    t.text    "details"
-    t.string  "audio_url"
+
+  create_table "lyric_occurences", force: true do |t|
+    t.integer  "lyric_id"
+    t.integer  "track_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
   create_table "lyrics", force: true do |t|
     t.text "body"
   end
-  
-  create_table "lyric_occurences", force: true do |t|
-    t.integer "lyric_id"
-    t.integer "track_id"
-    t.integer "position"
+
+  create_table "track_participations", force: true do |t|
+    t.integer  "artist_id"
+    t.integer  "track_id"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tracks", force: true do |t|
+    t.string   "title"
+    t.integer  "album_id"
+    t.string   "palo"
+    t.string   "style"
+    t.integer  "duration"
+    t.text     "details"
+    t.string   "audio_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "spotify_uri"
+  end
+
 end
