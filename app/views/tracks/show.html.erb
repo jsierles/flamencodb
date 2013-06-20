@@ -12,6 +12,12 @@ Your browser does not support the audio element.
 <% end %>
 <div>
   <% @track.lyrics.each do |l| %>
-  <p><%=raw l.body.gsub("\n", "<br />") %></p>
+  <p>
+    <%=raw l.body.gsub("\n", "<br />") %>
+    <% if l.spotify_offset %>
+    <iframe src="http://embed.spotify.com/?uri=<%= @track.spotify_uri %>#<%= l.spotify_offset %>&view=coverart&theme=white" frameborder="0" allowtransparency="true"></iframe>
+    <% end %>
+  </p>
+
   <% end %>
 </div>
