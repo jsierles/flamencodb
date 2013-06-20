@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def occurrences_for(lyric)
     lyric.lyric_occurences.collect do |lo|
-      "#{link_to lo.track.singer.name, artist_path(lo.track.singer)} por <i>#{lo.track.style}</i> en #{link_to lo.track.title, lo.track} #{audio_for(lo.track)}"  
+      "<i>#{lo.track.palo}</i> de  por  en #{link_to lo.track.title, lo.track}}"
     end.join("<br />")
   end
 

@@ -1,0 +1,66 @@
+/*
+ *= require_self
+ *= require_tree .
+ */
+
+@import "foundation";
+
+$header-font-family: "brandon-groteque", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+body {
+  font-family: "rosario", sans-serif;
+}
+
+/*ul {
+  list-style: none;
+}
+  
+.lyric {
+  font-size: 250%;
+}
+
+.appearances li a {
+  font-size: 160%;
+}
+
+#wrapper {
+  padding: 0 2em;
+}*/
+
+#search_button {
+  margin-left: 5px;
+  font-family: "brandon-grotesque";
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+#wrapper {
+  padding: 2em 0;
+}
+
+#header {
+  margin-bottom: 40px;
+}
+
+#search-results li {
+  margin-bottom: 40px;
+  font-size: 90%;
+  p {
+    font-size: 120%;
+  }
+  h3 {
+    margin-top: 8px;
+    font-size: 120%;
+    text-transform: uppercase;
+    color: lighten($header_font_color, 50);
+    font-weight: normal;
+    font-size: 80%;
+  }
+  h4 {
+    font-size: 100%;
+    font-style: italic;
+  }
+  h5 {
+    font-size: 120%;
+  }
+}

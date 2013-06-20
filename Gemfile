@@ -14,3 +14,4 @@ gem 'unicorn'
 gem 'nokogiri'
 gem 'textacular', github: "textacular/textacular"
 gem 'unicode_utils'
+gem 'zurb-foundation', '~> 4.0.0'

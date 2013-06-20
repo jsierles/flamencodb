@@ -4,16 +4,28 @@
   <title>Letras</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="//use.typekit.net/vow4ond.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 </head>
 <body>
-<div id="wrapper">
-<header>
-  <div style="margin: 0 auto; width: 60%; float: right">
-  <input style="padding: 5px; width: 300px" type="text" name="q" value="<%= params[:q] %>"> <input type="submit" />
-</header>
+<div class="row" id="wrapper">
+  <div class="large-8 large-centered columns" id="header">
+    <div class="row collapse">
+      <form action="/search">
+        <div class="large-10 columns">
+          <input type="text" name="q" placeholder="Antonio Mairena ...">          
+        </div>
+        <div class="large-2 columns">
+          <input type="submit" value="Buscar" class="button small" id="search_button">
+        </div>
+      </form>
+    </div>
+  </div>
 <%= yield %>
 </div>
 </body>

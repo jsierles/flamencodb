@@ -1,11 +1,16 @@
-<ul>
+<ul class="large-block-grid-4" id="search-results">
 <% @lyrics.each do |l| %>
-  <li style="margin-bottom: 30px"><%= link_to highlight(l.body.gsub("\n", " / "), params[:q]), lyric_path(l) %>
-    <div style="margin-top: 8px; color: #444;">Interpretaciones: <%=raw occurrences_for(l) %></div>
+  <li>
+    <p><%= highlight(l.body.gsub("\n", "<br />"), params[:q])  %></p>
+    <h3>Interpretaciones</h3>
+    <% l.lyric_occurences.each do |lo| %>
+    <h4><%= lo.track.style %></h4>
+    <h5><%= link_to lo.track.singer.name, artist_path(lo.track.singer) %></h5>
+    <% end %>
   </li>
 <% end %>
 </ul>
 
-<% if @lyrics.empty? && @albums.empty? && @tracks.empty? && @arists.empty? %>
+<% if @lyrics.empty? && @albums.empty? && @tracks.empty? && @artists.empty? %>
  No hay resultados para tu búsqueda.
 <% end %>
