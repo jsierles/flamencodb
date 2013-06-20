@@ -72,3 +72,6 @@ body {
   color: #444;
 }
 
+@media only screen and (max-device-width: 480px) {
+  #wrapper {padding-left: 10px; }
+}
