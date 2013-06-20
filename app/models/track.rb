@@ -14,6 +14,19 @@ class Track < ActiveRecord::Base
     style
   end
   
+  def complete_style
+    txt = ""
+    if palo
+      txt << palo
+    end
+    if style
+      if palo
+        txt << ", "
+      end
+      txt << style
+    end
+  end
+  
   def singer
     track_participations.detect {|a| a.role == "cante" }.artist
   end

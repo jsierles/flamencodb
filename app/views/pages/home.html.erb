@@ -2,7 +2,7 @@
   <div class="large-centered large-6 columns">
     <p id="home_lyric"><%= poetic_lyric(@lyric) %></p>
     <p><em><%= @lyric.tracks.first.style %></em> interpretado por <%= @lyric.tracks.first.singer.name %>
-      <% if release_year = @lyric.tracks.first.album.release_year %>
+      <% if release_year = @lyric.tracks.first.album.year %>
       en <%= release_year %>
       <% end %>
   </div>
