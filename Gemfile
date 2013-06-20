@@ -15,3 +15,6 @@ gem 'nokogiri'
 gem 'textacular', github: "textacular/textacular"
 gem 'unicode_utils'
 gem 'zurb-foundation', '~> 4.0.0'
+
+gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
