@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130618145543) do
   create_table "tracks", force: true do |t|
     t.string "title"
     t.integer "album_id"
+    t.string  "palo"
     t.string  "style"
     t.integer "duration"
     t.text    "details"

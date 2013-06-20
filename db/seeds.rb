@@ -71,7 +71,8 @@ tracks.each do |t|
     
     track = Track.create(duration: duration, 
                          details: track_values['Observaciones'],
-                         style: track_values['Palo'],
+                         palo: track_values['Palo'],
+                         style: track_values['Estilo'],
                          title: track_values['Título del Cante'],
                          audio_url: track_values['audio_url'],
                          album: album)
