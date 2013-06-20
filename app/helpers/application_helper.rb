@@ -6,6 +6,10 @@ module ApplicationHelper
     end.join("<br />")
   end
 
+  def poetic_lyric(lyric)
+    lyric.body.gsub("\n", "<br />").html_safe
+  end
+  
   def audio_for(track)
     if track.has_audio?
       "<audio style=\"margin-top: 5px\" controls>

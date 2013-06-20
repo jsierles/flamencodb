@@ -1,11 +1,16 @@
-<ul class="large-block-grid-4" id="search-results">
+<ul class="large-block-grid-3" id="search-results">
 <% @lyrics.each do |l| %>
   <li>
     <p><%= highlight(l.body.gsub("\n", "<br />"), params[:q])  %></p>
-    <h3>Interpretaciones</h3>
     <% l.lyric_occurences.each do |lo| %>
     <h4><%= lo.track.style %></h4>
     <h5><%= link_to lo.track.singer.name, artist_path(lo.track.singer) %></h5>
+    <div class="track"><%= link_to lo.track.title, track_path(lo.track) %></div>
+    <div class="album"><%= link_to lo.track.album.title, album_path(lo.track.album) %>
+      <% if year = lo.track.album.release_year %>
+      , <%= year %>
+      <% end %>
+      </div>
     <% end %>
   </li>
 <% end %>

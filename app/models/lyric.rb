@@ -7,4 +7,8 @@ class Lyric < ActiveRecord::Base
     tracks.any? {|t| t.has_audio? }
   end
   
+  def self.random
+    order("RANDOM()").limit(1).first
+  end
+
 end
