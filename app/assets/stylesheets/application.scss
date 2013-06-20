@@ -73,5 +73,7 @@ body {
 }
 
 @media only screen and (max-device-width: 480px) {
-  #wrapper {padding-left: 10px; }
+  #header { margin-top: 10px;}
+  #content {padding-left: 14px; }
+  .lyric_result {border-bottom: 1px solid #ccc; }
 }

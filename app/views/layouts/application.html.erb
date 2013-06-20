@@ -13,7 +13,7 @@
   
 </head>
 <body>
-<div class="row" id="wrapper">
+<div class="row" id="header">
   <div class="large-8 large-centered columns" id="header">
     <div class="row collapse">
       <form action="/search">
@@ -26,7 +26,9 @@
       </form>
     </div>
   </div>
-<%= yield %>
+</div>
+<div class="row" id="content">
+  <%= yield %>
 </div>
 </body>
 </html>
