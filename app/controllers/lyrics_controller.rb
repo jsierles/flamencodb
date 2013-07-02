@@ -1,5 +1,3 @@
-require 'textacular'
-
 class LyricsController < ApplicationController
   def index
     @lyrics = Lyric.all

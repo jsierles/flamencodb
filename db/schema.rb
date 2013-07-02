@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702100150) do
+ActiveRecord::Schema.define(version: 20130702211028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20130702100150) do
     t.string   "sticker"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_ref"
+    t.boolean  "compilation"
+    t.string   "spotify_uri"
   end
 
   create_table "artists", force: true do |t|
@@ -34,6 +37,8 @@ ActiveRecord::Schema.define(version: 20130702100150) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_ref"
+    t.string   "spotify_uri"
   end
 
   create_table "favorites", force: true do |t|
@@ -51,7 +56,8 @@ ActiveRecord::Schema.define(version: 20130702100150) do
   end
 
   create_table "lyrics", force: true do |t|
-    t.text "body"
+    t.text   "body"
+    t.string "external_ref"
   end
 
   create_table "track_participations", force: true do |t|
@@ -60,6 +66,7 @@ ActiveRecord::Schema.define(version: 20130702100150) do
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "principal"
   end
 
   create_table "tracks", force: true do |t|
@@ -73,6 +80,9 @@ ActiveRecord::Schema.define(version: 20130702100150) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "spotify_uri"
+    t.integer  "guitar_fret"
+    t.string   "guitar_key"
+    t.string   "external_ref"
   end
 
 end

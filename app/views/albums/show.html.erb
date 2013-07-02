@@ -1,5 +1,11 @@
-<div style="float: left; width: 49%">
-<h1><%= @album.title %></h1>
+<div class="large-6 columns">
+<h1 style="font-size: 130%"><%= @album.title %></h1>
+<% if !@album.compilation? %>
+  <% @album.participating_artists.each do |artist| %>
+  <h3 style="font-size: 120%"><%= link_to artist.name, artist_path(artist) %></h3>
+  <% end %>
+<% end %>
+
 <ul>
   <% @album.tracks.each do |t| %>
   <li><%= link_to t.title, track_path(t) %></li>
@@ -7,3 +13,8 @@
 </ul>
 </div>
 
+<div class="large-6 columns">
+<% if @album.spotify_uri %>
+<iframe src="https://embed.spotify.com/?uri=<%= @album.spotify_uri %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+<% end %>
+</div>

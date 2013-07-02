@@ -1,25 +1,22 @@
-<h1><%= @track.title %></h1>
-<h2><%= @track.style %> del álbum <%= link_to @track.album.title, album_path(@track.album) %></h2>
-<% if @track.singer %>
-<h3>Cante: <%= link_to @track.singer.name, artist_path(@track.singer) %></h3>
-<% end %>
-<% if @track.guitarist %>
-<h4>Guitarra: <%= link_to @track.guitarist.name, artist_path(@track.guitarist) %></h4>
-<% end %>
-<% if @track.has_audio? %>
-<audio style="margin-top: 5px" controls>
-  <source src="<%= @track.audio_url %>" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<% end %>
-<div>
-  <% @track.lyrics.each do |l| %>
-  <p>
-    <%=raw l.body.gsub("\n", "<br />") %>
-    <% if l.spotify_offset %>
-    <iframe src="http://embed.spotify.com/?uri=<%= @track.spotify_uri %>#<%= l.spotify_offset %>&view=coverart&theme=white" frameborder="0" allowtransparency="true"></iframe>
-    <% end %>
-  </p>
+<div class="large-6 columns">
+  <h1 style="font-size: 150%"><%= @track.title %></h1>
+  <h2 style="font-size: 140%"><%= @track.style %></h2>
+  <h3 style="font-size: 130%"><%= link_to @track.album.title, album_path(@track.album) %></h3>
 
+  <h3 style="font-size: 120%">
+    <%= @track.participating_artists.collect { |artist| link_to(artist.name, artist_path(artist)) }.join(", ").html_safe %></h3>
+
+  <div style="margin-top: 50px">
+    <% @track.lyrics.each do |l| %>
+    <p style="font-size: 120%">
+      <%=raw l.body.gsub("\n", "<br />") %>
+    </p>
+
+    <% end %>
+  </div>
+</div>
+<div class="large-6 columns">
+  <% if @track.spotify_uri %>
+  <iframe src="https://embed.spotify.com/?uri=<%= @track.spotify_uri%>&view=coverart&theme=white" frameborder="0" allowtransparency="true"></iframe>
   <% end %>
 </div>

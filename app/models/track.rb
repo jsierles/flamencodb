@@ -1,6 +1,7 @@
 class Track < ActiveRecord::Base
   belongs_to :album
-  has_many :participating_artists, through: :track_participations, source: :artist
+  has_many :participating_artists, through: :track_participations, source: :artist,
+                                   select: "artists.*, principal, role"
   has_many :track_participations
   has_many :lyrics, through: :lyric_occurences,
                     select: 'lyrics.*, position, spotify_offset',
@@ -17,6 +18,10 @@ class Track < ActiveRecord::Base
     style
   end
   
+  def principal_artist
+    participating_artists.detect {|a| a.principal? }
+  end
+  
   def complete_style
     txt = ""
     if palo
@@ -28,6 +33,14 @@ class Track < ActiveRecord::Base
       end
       txt << style
     end
+  end
+  
+  def update_spotify_uri
+    update_attribute :spotify_uri, spotify_record.try(:uri)
+  end
+      
+  def spotify_record
+    MetaSpotify::Track.search("#{title} #{principal_artist.try(:name)}")[:tracks].first  
   end
   
   def singer
