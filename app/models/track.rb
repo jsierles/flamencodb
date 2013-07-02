@@ -36,7 +36,7 @@ class Track < ActiveRecord::Base
   end
   
   def update_spotify_uri
-    update_attribute :spotify_uri, spotify_record.try(:uri)
+    update_attribute :spotify_uri, spotify_record.try(:uri) if !spotify_uri
   end
       
   def spotify_record

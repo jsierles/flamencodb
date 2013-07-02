@@ -15,6 +15,10 @@ class Album < ActiveRecord::Base
     participating_artists.select {|pa| pa.principal? }.uniq.first
   end
   
+  def update_spotify_uri
+    update_attribute :spotify_uri, spotify_record.try(:uri) if !spotify_uri
+  end
+  
   def spotify_record
     MetaSpotify::Album.search("#{title} #{principal_artist.try(:name)}")[:albums].first
   end
