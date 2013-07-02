@@ -101,7 +101,7 @@ end
 
 # FLUN import
 
-page = Nokogiri::HTML(File.open(dir+"/flun.html"))
+page = Nokogiri::HTML(File.open(__dir__+"/flun.html"))
 tracks = page.css("table[cellpadding='3']")
 
 puts "Importing FLUN #{tracks.size} tracks..."
