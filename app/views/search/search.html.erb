@@ -20,6 +20,9 @@
       <% if year = lo.track.album.year %>
       , <%= year %>
       <% end %>
+      <% if lo.track.album.spotify_uri %>
+        , <% link_to 'Spotify', lo.track.album.spotify_uri %>
+      <% end %>
       </div>
     <% end %>
   </li>

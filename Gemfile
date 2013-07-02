@@ -22,3 +22,4 @@ gem 'musicbrainz'
 gem 'meta-spotify'
 gem 'sitemap_generator'
 gem 'bullet', group: :development
+gem 'parallel'
