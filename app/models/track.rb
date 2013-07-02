@@ -28,7 +28,7 @@ class Track < ActiveRecord::Base
   end
   
   def singer
-    track_participations.detect {|a| a.role == "cante" }.artist
+    track_participations.detect {|a| a.role == "cante" }.try :artist
   end
   
   def guitarist

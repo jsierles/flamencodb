@@ -1,9 +1,19 @@
 <div class="row">
   <div class="large-centered large-6 columns">
     <p id="home_lyric"><%= poetic_lyric(@lyric) %></p>
-    <p><em><%= @lyric.tracks.first.style %></em> interpretado por <%= @lyric.tracks.first.singer.name %>
-      <% if release_year = @lyric.tracks.first.album.year %>
-      en <%= release_year %>
+    <p><em><%= @lyric.tracks.first.style %></em>
+      <% if @lyric.tracks.first.singer %>
+      interpretado por <%= @lyric.tracks.first.singer.name %>
       <% end %>
+      
+      <% if @lyric.tracks.first.album %>
+      en  <%= link_to @lyric.tracks.first.album.title, album_path(@lyric.tracks.first.album) %>
+      <% end %>
+      
+      <% if release_year = @lyric.tracks.first.album.year %>
+      , <%= release_year %>
+      <% end %>
+      
+      
   </div>
 </div>

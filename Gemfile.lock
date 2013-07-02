@@ -70,6 +70,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     erubis (2.7.0)
+    escape (0.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.3)
@@ -110,6 +111,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    textractor (0.2.0)
+      escape (>= 0.0.4)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -146,6 +149,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails!
   textacular!
+  textractor
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)

@@ -4,7 +4,9 @@
     <p><%= highlight(l.body.gsub("\n", "<br />"), params[:q])  %></p>
     <% l.lyric_occurences.each do |lo| %>
     <h4><%= lo.track.style %></h4>
-    <h5><%= link_to lo.track.singer.name, artist_path(lo.track.singer) %></h5>
+    <% if lo.track.singer %>
+      <h5><%= link_to lo.track.singer.name, artist_path(lo.track.singer) %></h5>
+    <% end %>
     <div class="track"><%= link_to lo.track.title, track_path(lo.track) %></div>
     <div class="album"><%= link_to lo.track.album.title, album_path(lo.track.album) %>
       <% if year = lo.track.album.year %>
