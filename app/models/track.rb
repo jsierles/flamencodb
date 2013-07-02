@@ -51,4 +51,7 @@ class Track < ActiveRecord::Base
     track_participations.detect {|a| a.role == "guitarra" }.try :artist
   end
 
+  def self.searchable_language
+    'russian'
+  end
 end

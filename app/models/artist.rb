@@ -9,4 +9,9 @@ class Artist < ActiveRecord::Base
   def spotify_record
     MetaSpotify::Artist.search(name)[:artists].first
   end
+  
+  def self.searchable_language
+    'spanish'
+  end
+  
 end

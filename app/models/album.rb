@@ -22,4 +22,9 @@ class Album < ActiveRecord::Base
   def spotify_record
     MetaSpotify::Album.search("#{title} #{principal_artist.try(:name)}")[:albums].first
   end
+  
+  def self.searchable_language
+    'spanish'
+  end
+  
 end

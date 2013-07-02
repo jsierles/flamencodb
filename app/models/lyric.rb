@@ -13,4 +13,8 @@ class Lyric < ActiveRecord::Base
     order("RANDOM()").limit(1).first
   end
   
+  def self.searchable_language
+    'spanish'
+  end
+  
 end
