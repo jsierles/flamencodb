@@ -73,6 +73,8 @@ GEM
     escape (0.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     hike (1.2.3)
     i18n (0.6.4)
     jquery-rails (3.0.1)
@@ -87,6 +89,10 @@ GEM
     mime-types (1.23)
     minitest (5.0.4)
     multi_json (1.7.7)
+    multipart-post (1.2.0)
+    musicbrainz (0.7.6)
+      faraday
+      nokogiri
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -143,6 +149,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jquery-rails
+  musicbrainz
   nokogiri
   pg
   rails!
