@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702215552) do
+ActiveRecord::Schema.define(version: 20130702221245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20130702215552) do
     t.integer  "spotify_offset"
   end
 
+  add_index "lyric_occurences", ["lyric_id", "track_id"], name: "index_lyric_occurences_on_lyric_id_and_track_id", using: :btree
+
   create_table "lyrics", force: true do |t|
     t.text     "body"
     t.string   "external_ref"
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(version: 20130702215552) do
     t.boolean  "principal"
   end
 
+  add_index "track_participations", ["artist_id", "track_id"], name: "index_track_participations_on_artist_id_and_track_id", using: :btree
+
   create_table "tracks", force: true do |t|
     t.string   "title"
     t.integer  "album_id"
@@ -86,5 +90,7 @@ ActiveRecord::Schema.define(version: 20130702215552) do
     t.string   "guitar_key"
     t.string   "external_ref"
   end
+
+  add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
 
 end
