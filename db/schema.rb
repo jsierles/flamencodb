@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702211028) do
+ActiveRecord::Schema.define(version: 20130702215552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 20130702211028) do
   end
 
   create_table "lyrics", force: true do |t|
-    t.text   "body"
-    t.string "external_ref"
+    t.text     "body"
+    t.string   "external_ref"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "track_participations", force: true do |t|

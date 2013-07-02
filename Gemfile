@@ -20,3 +20,4 @@ gem 'rails_12factor', group: :production
 gem 'textractor'
 gem 'musicbrainz'
 gem 'meta-spotify'
+gem 'sitemap_generator'
