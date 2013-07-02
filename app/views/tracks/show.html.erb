@@ -1,6 +1,8 @@
 <h1><%= @track.title %></h1>
 <h2><%= @track.style %> del álbum <%= link_to @track.album.title, album_path(@track.album) %></h2>
+<% if @track.singer %>
 <h3>Cante: <%= link_to @track.singer.name, artist_path(@track.singer) %></h3>
+<% end %>
 <% if @track.guitarist %>
 <h4>Guitarra: <%= link_to @track.guitarist.name, artist_path(@track.guitarist) %></h4>
 <% end %>
