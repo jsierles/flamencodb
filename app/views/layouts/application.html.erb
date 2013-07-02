@@ -18,7 +18,7 @@
     <div class="row collapse">
       <form action="/search">
         <div class="large-10 columns">
-          <input type="text" name="q" placeholder="<%= params[:q] || "la flor que amaba" %>">          
+          <input type="text" name="q" placeholder="<%= "la flor que amaba" %>" value="<%=params[:q]%>"> 
         </div>
         <div class="large-2 columns">
           <input type="submit" value="Buscar" class="button small" id="search_button">
