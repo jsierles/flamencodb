@@ -52,6 +52,6 @@ class Track < ActiveRecord::Base
   end
 
   def self.searchable_language
-    'russian'
+    'spanish'
   end
 end
