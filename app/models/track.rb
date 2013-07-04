@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
   belongs_to :album
-  has_many :participating_artists, through: :track_participations, source: :artist,
-                                   select: "artists.*, principal, role"
+  has_many :participating_artists, -> {select("artists.*, principal, role")},
+                                   through: :track_participations, source: :artist,
   has_many :track_participations
   has_many :lyrics, -> {select('lyrics.*, position, spotify_offset').order('position')},
                     through: :lyric_occurences
