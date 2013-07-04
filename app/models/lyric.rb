@@ -2,7 +2,7 @@ class Lyric < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   include ActiveSupport::Inflector
   
-  has_many :tracks, through: :lyric_occurences, :select => 'tracks.*, lyric_occurences.position'
+  has_many :tracks, -> {select('tracks.*, lyric_occurences.position')}, through: :lyric_occurences
   has_many :lyric_occurences
   
   def has_audio?

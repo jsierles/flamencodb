@@ -3,9 +3,8 @@ class Track < ActiveRecord::Base
   has_many :participating_artists, through: :track_participations, source: :artist,
                                    select: "artists.*, principal, role"
   has_many :track_participations
-  has_many :lyrics, through: :lyric_occurences,
-                    select: 'lyrics.*, position, spotify_offset',
-                    order: "position"
+  has_many :lyrics, -> {select('lyrics.*, position, spotify_offset').order('position')},
+                    through: :lyric_occurences
                     
   has_many :lyric_occurences
   
