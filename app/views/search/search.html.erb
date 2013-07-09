@@ -4,7 +4,7 @@
 <ul class="large-block-grid-3" id="search-results">
 <% @lyrics.each do |l| %>
   <li class="lyric_result">
-    <p><%= highlight(l.body.gsub("\n", "<br />"), params[:q])  %></p>
+    <p><%= link_to highlight(l.body.gsub("\n", "<br />"), params[:q]), lyric_path(l)  %></p>
     <% l.lyric_occurences.each do |lo| %>
     <h4><%= lo.track.style %></h4>
     <% if lo.track.singer %>
