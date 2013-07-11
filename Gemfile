@@ -24,3 +24,7 @@ gem 'sitemap_generator'
 gem 'bullet', group: :development
 gem 'parallel'
 gem 'heroku-deflater'
+gem 'puma'
+gem 'capistrano'
+gem 'fast_git_deploy'
+gem 'capistrano-rbenv'
