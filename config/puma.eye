@@ -2,7 +2,7 @@ RAILS_ENV = 'production'
 ROOT      = "/home/app/letrasflamencas"
 CURRENT   = File.expand_path(File.join(ROOT, %w{current}))
 LOGS      = File.expand_path(File.join(ROOT, %w{shared log}))
-PIDS      = File.expand_path(File.join(ROOT, %w{shared pids}))
+PIDS      = File.expand_path(File.join(ROOT, %w{shared tmp pids}))
 
 Eye.config do
   logger "#{LOGS}/eye.log"
@@ -19,7 +19,7 @@ Eye.application :letras do
     pid_file "#{PIDS}/puma.pid"
     stdall "#{LOGS}/#{RAILS_ENV}.log"
 
-    start_command "bin/puma --port 80 --pidfile #{PIDS}/puma.pid --environment #{RAILS_ENV}"
+    start_command "bin/puma -b unix:/tmp/rails.sock --pidfile #{PIDS}/puma.pid --environment #{RAILS_ENV}"
     stop_command "kill -TERM {{PID}}"
     restart_command "kill -USR2 {{PID}}"
 
