@@ -28,3 +28,5 @@ gem 'capistrano'
 gem 'fast_git_deploy'
 gem 'capistrano-rbenv'
 gem 'eye'
+gem 'newrelic_rpm'
+
