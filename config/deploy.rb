@@ -13,13 +13,10 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
+server 'ocean-1.diluvia.net', :web, :app, :db
+
 namespace :deploy do
   task :restart do
     run "kill -USR2 `cat #{shared_path}/tmp/pids/puma.pid`"
   end
 end
-
-role :web, "ocean-1"
-role :app, "ocean-1"
-role :db,  "ocean-1"
-
