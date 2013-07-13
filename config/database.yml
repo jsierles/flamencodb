@@ -7,3 +7,9 @@ test:
   adapter: postgresql
   database: letras_test
   pool: 5
+
+production:
+  adapter: postgresql
+  database: letras_production
+  pool: 100
+  user: postgres
