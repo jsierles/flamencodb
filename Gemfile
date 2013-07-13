@@ -10,7 +10,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'pg'
-gem 'unicorn'
 gem 'nokogiri'
 gem 'textacular', github: "textacular/textacular"
 gem 'unicode_utils'
@@ -24,7 +23,7 @@ gem 'sitemap_generator'
 gem 'bullet', group: :development
 gem 'parallel'
 gem 'heroku-deflater'
-gem 'puma'
+gem 'puma', github: 'puma/puma'
 gem 'capistrano'
 gem 'fast_git_deploy'
 gem 'capistrano-rbenv'
