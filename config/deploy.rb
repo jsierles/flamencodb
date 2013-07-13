@@ -7,6 +7,7 @@ set :repository,  "git@github.com:jsierles/flamencodb.git"
 set :user, "app"
 set :deploy_to, "/home/app/letrasflamencas"
 set :branch, "master"
+set :rbenv_ruby_version, "2.0.0-p247"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
