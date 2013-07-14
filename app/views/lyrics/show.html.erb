@@ -7,9 +7,11 @@
     <div class="track_title">
   <%= link_to track.title, track_path(track) %>
     </div>
+    <% if track.principal_artist %>
     <div style="font-size: 80%" class="artist_name">
       <%= link_to track.principal_artist.name, artist_path(track.principal_artist) %>
     </div>
+    <% end %>
     <div  style="font-size: 80%" class="album_title">
       <%= link_to track.album.title, album_path(track.album) %>
     </div>
