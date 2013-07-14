@@ -1,8 +1,10 @@
-<% if !@lyrics.empty? %>
-<h1 style="font-size:120%; text-transform: uppercase; color: #aaa">Letras</h1>
-
+<% if !@results.empty? %>
+<div class="pagination">
+  <%= paginate @results %>
+</div>
 <ul class="large-block-grid-3" id="search-results">
-<% @lyrics.each do |l| %>
+<% @results.each do |r| %>
+  <% l = Lyric.find(r.searchable_id)%>
   <li class="lyric_result">
     <p><%= link_to highlight(l.body.gsub("\n", "<br />"), params[:q]), lyric_path(l)  %></p>
     <% l.lyric_occurences.each do |lo| %>
@@ -28,19 +30,9 @@
   </li>
 <% end %>
 </ul>
+<div class="pagination">
+  <%= paginate @results %>
+</div>
+<% else %>
+<h2>No hay resultados!</h2>
 <% end %>
-
-<% if !@albums.empty? %>
-<h1 style="font-size:120%; text-transform: uppercase; color: #aaa">Álbumes</h1>
-  <ul class="large-block-grid-3" id="search-results">
-  <% @albums.each do |a| %>
-    <li class="lyric_result">
-      <p><%= link_to highlight(a.title, params[:q]), album_path(a)  %></p>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
-<% if @lyrics.empty? && @albums.empty? && @tracks.empty? && @artists.empty? %>
- No hay resultados para tu búsqueda.
-<% end %>
-

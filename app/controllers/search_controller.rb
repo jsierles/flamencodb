@@ -1,10 +1,7 @@
 class SearchController < ApplicationController
   
   def search
-    @artists = Artist.basic_search(params[:q])
-    @albums = Album.basic_search(params[:q])
-    @lyrics = Lyric.basic_search(params[:q]).includes(:lyric_occurences)
-    @tracks = Track.basic_search(params[:q])
+    @results = Kaminari.paginate_array(PgSearch.multisearch(params[:q]).to_a).page(params[:page] || 1)
   end
 
 end

@@ -15,6 +15,7 @@ ul {
   list-style: none;
 }
 
+
 /*
   
 .lyric {
@@ -78,4 +79,16 @@ ul {
 @media only screen and (max-device-width: 480px) {
   #content {padding-left: 14px; }
   .lyric_result {border-bottom: 1px solid #ccc; }
+}
+
+.pagination {
+  .page {
+    font-size: 130%;
+  }
+  text-align: center;
+  margin: 20px;
+  .next, .last, .prev, .first {
+    margin: 0px 10px;
+    font-size: 90%;
+  }
 }

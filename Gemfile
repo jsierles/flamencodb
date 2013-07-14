@@ -2,17 +2,17 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', github: 'rails/rails'
-gem 'sass-rails', github: 'rails/sass-rails'
+gem 'rails', github: 'rails/rails', branch: '4-0-stable'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', github: 'rails/coffee-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'pg'
 gem 'nokogiri'
-gem 'textacular', github: "textacular/textacular"
+gem 'pg_search', github: "Casecommons/pg_search"
 gem 'unicode_utils'
 gem 'zurb-foundation', '~> 4.0.0'
 
@@ -27,4 +27,4 @@ gem 'fast_git_deploy'
 gem 'capistrano-rbenv'
 gem 'eye'
 gem 'newrelic_rpm', github: 'newrelic/rpm'
-
+gem 'kaminari', github: 'amatsuda/kaminari'

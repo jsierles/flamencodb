@@ -1,7 +1,10 @@
 class Lyric < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   include ActiveSupport::Inflector
-  
+
+  include PgSearch
+  multisearchable :against => [:body]
+    
   has_many :tracks, -> {select('tracks.*, lyric_occurences.position')}, through: :lyric_occurences
   has_many :lyric_occurences
   
