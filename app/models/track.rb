@@ -39,7 +39,7 @@ class Track < ActiveRecord::Base
   end
       
   def spotify_record
-    MetaSpotify::Track.search("#{title} #{principal_artist.try(:name)}")[:tracks].first  
+    MetaSpotify::Track.search("#{title} #{album.title}")[:tracks].first  
   end
   
   def singer
