@@ -14,6 +14,10 @@
 </head>
 <body>
 <div class="row" id="header">
+  <div class="large-centered" style="text-align: center; margin-bottom: 30px">
+  <%= link_to "Ver todas las letras", lyrics_path, style: "font-size: 80%" %>
+  </div>
+  
   <div class="large-8 large-centered columns" id="header">
     <div class="row collapse">
       <form action="/search" method="get">
@@ -29,9 +33,6 @@
 </div>
 <div class="row" id="content">
   <%= yield %>
-  <div class="large-centered" style="text-align: center; margin-bottom: 30px">
-  <%= link_to "Ver todas las letras", lyrics_path, style: "font-size: 80%" %>
-  </div>
 </div>
 
 <script type="text/javascript">
