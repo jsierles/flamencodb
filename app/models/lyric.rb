@@ -8,6 +8,8 @@ class Lyric < ActiveRecord::Base
   has_many :tracks, -> {select('tracks.*, lyric_occurences.position')}, through: :lyric_occurences
   has_many :lyric_occurences
   
+  scope :completed, -> { where("body NOT LIKE '(%'") }
+
   def has_audio?
     tracks.any? {|t| t.has_audio? }
   end

@@ -1,5 +1,13 @@
+<div class="pagination">
+  <%= paginate @lyrics %>
+</div>
+
 <ul>
 <% @lyrics.each do |l| %>
-<li><%= link_to l.body.gsub("\n", " / "), lyric_path(l) %> <%= "mp3" if l.has_audio? %></li>
+<li><%= link_to l.body.gsub("\n", " / "), lyric_path(l) %></li>
 <% end %>
 </ul>
+
+<div class="pagination">
+  <%= paginate @lyrics %>
+</div>
