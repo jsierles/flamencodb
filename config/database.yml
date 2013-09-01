@@ -13,3 +13,4 @@ production:
   database: letras_production
   pool: 100
   user: postgres
+  host: 192.34.60.102
