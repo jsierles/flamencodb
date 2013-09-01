@@ -8,12 +8,14 @@ set :user, "app"
 set :deploy_to, "/home/app/letrasflamencas"
 set :branch, "master"
 set :rbenv_ruby_version, "2.0.0-p247"
+set :use_sudo, false
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
+set :use_sudo, false
 
-server 'ocean-1.diluvia.net', :web, :app, :db
+server 'app-01', :web, :app, :db
 
 namespace :deploy do
   task :restart do

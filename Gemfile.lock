@@ -83,7 +83,7 @@ GEM
   specs:
     activerecord-deprecated_finders (1.0.3)
     arel (4.0.0)
-    atomic (1.1.10)
+    atomic (1.1.13)
     builder (3.1.4)
     bullet (4.6.0)
       uniform_notifier
@@ -111,10 +111,10 @@ GEM
     escape (0.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    eye (0.1.6)
-      activesupport
-      celluloid
-      celluloid-io
+    eye (0.4.1)
+      activesupport (>= 3)
+      celluloid (~> 0.14.0)
+      celluloid-io (~> 0.14.0)
       state_machine
       thor
     faraday (0.8.7)
@@ -125,7 +125,7 @@ GEM
     httparty (0.11.0)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
-    i18n (0.6.4)
+    i18n (0.6.5)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -137,7 +137,7 @@ GEM
       httparty (> 0.8)
     mime-types (1.23)
     minitest (4.7.5)
-    multi_json (1.7.7)
+    multi_json (1.7.9)
     multi_xml (0.5.4)
     multipart-post (1.2.0)
     musicbrainz (0.7.6)
@@ -150,7 +150,7 @@ GEM
     net-ssh (2.6.8)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    nio4r (0.4.6)
+    nio4r (0.5.0)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -182,7 +182,7 @@ GEM
       libv8 (~> 3.11.8.12)
       ref
     thor (0.18.1)
-    thread_safe (0.1.0)
+    thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
     timers (1.1.0)
