@@ -12,5 +12,6 @@ production:
   adapter: postgresql
   database: letras_production
   pool: 100
-  user: postgres
+  user: diluvia
   host: 192.34.60.102
+  password: prus2dad8mo
