@@ -15,7 +15,7 @@ ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 set :use_sudo, false
 
-server 'app-01', :web, :app, :db
+server 'tomaflamenco.com', :web, :app, :db
 
 namespace :deploy do
   task :restart do
