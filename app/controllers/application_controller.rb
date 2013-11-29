@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter do
-    redirect_to "http://tomaflamenco.com/es/#{request.path}", status: :moved_permanently
+    path = request.path == "/" ? "lyrics" : request.path 
+    redirect_to "http://tomaflamenco.com/es/#{path}", status: :moved_permanently
   end
     
 end
